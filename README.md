@@ -51,3 +51,7 @@ Base address of api : `https://spotify-api-vflc.vercel.app/api`
 ### get track by id
 
 #### **Get** `/track/{trackId}`
+
+### get track preview
+
+#### **Get** `/track/{trackId}/preview`
