@@ -8,13 +8,12 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { query, types, options, error } = requestBodyValidator(req.body);
   if (error) return res.status(400).json(error);
 
-  try {
-    await spotifyApi.ensureHasToken();
-    const result = await spotifyApi.search(query!, types, options);
+  await spotifyApi.ensureHasToken();
+  spotifyApi.search(query!, types, options, (error, result) => {
+    if (error) return res.status(500).json({ error: error.message });
+
     return res.json(result.body);
-  } catch (e) {
-    return res.status(500).json({ error: "error." });
-  }
+  });
 };
 
 export default handler;
