@@ -1,5 +1,5 @@
 import { assert } from "console";
-import { NextApiHandler, NextApiRequest, NextApiResponse } from "next";
+import { NextApiRequest, NextApiResponse } from "next";
 import SpotifyWebApi from "spotify-web-api-node";
 
 assert(
@@ -17,7 +17,7 @@ export const spotifyApi = new SpotifyWebApi({
   redirectUri: process.env.SPOTIFY_CALLBACK_URL,
 });
 
-export const ensureHasToken = (apiRoute: NextApiHandler) => {
+export const ensureHasToken = (apiRoute: any) => {
   return async (req: NextApiRequest, res: NextApiResponse) => {
     if (!spotifyApi.getAccessToken()) {
       const {
