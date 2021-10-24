@@ -12,12 +12,12 @@ assert(
 
 class MySpotifyWebApi extends SpotifyWebApi {
   async ensureHasToken() {
-    if (!spotifyApi.getAccessToken()) {
+    if (!this.getAccessToken()) {
       const {
         body: { access_token },
-      } = await spotifyApi.clientCredentialsGrant();
+      } = await this.clientCredentialsGrant();
 
-      spotifyApi.setAccessToken(access_token);
+      this.setAccessToken(access_token);
     }
   }
 }
