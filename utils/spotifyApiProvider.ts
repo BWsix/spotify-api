@@ -25,5 +25,4 @@ class MySpotifyWebApi extends SpotifyWebApi {
 export const spotifyApi = new MySpotifyWebApi({
   clientId: process.env.SPOTIFY_CLIENT_ID,
   clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
-  redirectUri: process.env.SPOTIFY_CALLBACK_URL,
 });
