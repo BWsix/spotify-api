@@ -13,6 +13,7 @@ A rest api implementation of [thelinmichael][thelinmichael]'s [spotify-web-api-n
   - [Album](#docs_artist)
   - [Artist](#docs_album)
   - [Track](#docs_track)
+  - [User](#docs_user)
 
 # About <a name = "about"></a>
 
@@ -26,6 +27,10 @@ Base address of api : `https://spotify-api-vflc.vercel.app/api`
 
 ### search things on spotify
 
+#### **Get** `/search/{query string}`
+
+or
+
 #### **Post** `/search`
 
 |  FIELD  |    TYPE     | REQUIRED | DESCRIPTION                                                                             |
@@ -36,22 +41,68 @@ Base address of api : `https://spotify-api-vflc.vercel.app/api`
 
 ## Album<a name = "docs_album"></a>
 
-### get album by id
+### get album
 
 #### **Get** `/album/{albumId}`
 
+### get cover
+
+#### **Get** `/album/{albumId}/cover`
+
+return : cover image in `jpeg` format
+
+### get tracks in album
+
+#### **Post** `/album/{albumId}/tracks`
+
 ## Artist<a name = "docs_artist"></a>
 
-### get artist by id
+### get artist
 
 #### **Get** `/artist/{artistId}`
 
+### get artist's albums
+
+#### **Post** `/artist/{artistId}/albums`
+
+### get artist's related artists
+
+#### **Get** `/artist/{artistId}/relatedArtists`
+
+### get artist's top tracks
+
+#### **Post** `/artist/{artistId}/topTracks`
+
 ## Track<a name = "docs_track"></a>
 
-### get track by id
+### get track
 
 #### **Get** `/track/{trackId}`
 
-### get track preview
+### get preview
 
 #### **Get** `/track/{trackId}/preview`
+
+### get cover
+
+#### **Get** `/track/{trackId}/cover`
+
+return : cover image in `jpeg` format
+
+### get audio analysis
+
+#### **Get** `/track/{trackId}/audioAnalysis`
+
+### get audio features
+
+#### **Get** `/track/{trackId}/features`
+
+## User<a name = "docs_user"></a>
+
+### get user
+
+#### **Get** `/user/{userId}`
+
+### get user playlists
+
+#### **Post** `/user/{userId}/playlists`
